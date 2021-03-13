@@ -11,7 +11,7 @@ public class Main {
 	public static CreateEnvironment createEnvironment = null;
 
 	public static void main(String[] args) {
-		//Initialize the maze environment
+		// Initialize the maze environment
 		createEnvironment = new CreateEnvironment(Constants.WIDTH, Constants.HEIGHT);
 		maze = createEnvironment.getMaze();
 		
