@@ -18,5 +18,11 @@ public class Constants {
 		
 		//Discount factor
 		public static final double DISCOUNT =  0.990;
+		
+		//Special squares coordinates
+		public static final String GREEN_COORDS = "0,0 2,0 5,0 3,1 4,2 5,3";
+		public static final String BROWN_COORDS = "1,1 5,1 2,2 3,3 4,4";
+		public static final String WALL_COORDS = "1,0 4,1 1,4 2,4 3,4";
+		public static final String AGENT_COORD = "2,3";
 
 }
