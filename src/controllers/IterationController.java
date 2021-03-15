@@ -5,6 +5,7 @@ import java.util.List;
 
 import entities.StateModel;
 import entities.UtilityModel;
+import entities.ActionModel;
 import entities.Constants;
 
 public class IterationController {
@@ -71,7 +72,65 @@ public class IterationController {
 	}
 
 	public static void policyIteration(StateModel[][] maze) {
-				
+		
+		UtilityModel[][] curUtilityArr = new UtilityModel[Constants.WIDTH][Constants.HEIGHT];
+		UtilityModel[][] newUtilityArr = new UtilityModel[Constants.WIDTH][Constants.HEIGHT];
+
+		// Initialize default utilities and policies for each state
+		for (int col = 0; col < Constants.WIDTH; col++) {
+			for (int row = 0; row < Constants.HEIGHT; row++) {
+				newUtilityArr[col][row] = new UtilityModel();
+				if (!maze[col][row].getIsWall()) {
+					ActionModel randomAction = ActionModel.getRandomAction();
+					newUtilityArr[col][row].setAction(randomAction);
+				}
+			}
+		}
+
+		// List to store utilities of every state at each iteration
+		utilityList = new ArrayList<>();
+
+		// Used to check if the current policy value is already optimal
+		boolean optimal = true;
+
+		do {
+
+			UtilityController.updateUtilites(newUtilityArr, curUtilityArr);
+
+			// Append to list of Utility a copy of the existing actions & utilities
+			UtilityModel[][] curUtilityArrCopy = new UtilityModel[Constants.WIDTH][Constants.HEIGHT];
+			UtilityController.updateUtilites(curUtilityArr, curUtilityArrCopy);
+			utilityList.add(curUtilityArrCopy);
+			
+
+			// Policy estimation based on the current actions and utilities
+			newUtilityArr = UtilityController.bellmanEstimates(curUtilityArr, maze);
+
+			optimal = true;
+
+			// For each state - Policy improvement
+			for (int row = 0; row < Constants.WIDTH; row++) {
+				for (int col = 0; col < Constants.HEIGHT; col++) {
+
+					// Calculate the utility for each state, not necessary to calculate for walls
+					if (!maze[col][row].getIsWall()) {
+						// Best calculated action based on maximizing utility
+						UtilityModel bestActionUtil = UtilityController.getBestUtility(col, row, newUtilityArr, maze);
+
+						// Action and the corresponding utility based on current policy
+						ActionModel policyAction = newUtilityArr[col][row].getAction();
+						UtilityModel policyActionUtil = UtilityController.getFixedUtility(policyAction, col, row, newUtilityArr, maze);
+
+						if((bestActionUtil.getUtility() > policyActionUtil.getUtility())) {
+							newUtilityArr[col][row].setAction(bestActionUtil.getAction());
+							optimal = false;
+						}
+					}
+				}
+			}
+			k++;
+
+		} while (!optimal);
 	}
 
 }
