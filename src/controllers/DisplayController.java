@@ -2,6 +2,7 @@ package controllers;
 
 import entities.Constants;
 import entities.StateModel;
+import entities.UtilityModel;
 
 public class DisplayController {
 	
@@ -38,4 +39,53 @@ public class DisplayController {
 			System.out.println("-------------------------");
 		}
 	}
+	
+	// Display the policy, i.e. the action to be taken at each state
+	public static void printPolicy(final UtilityModel[][] utilityArr) {
+		
+		System.out.println("Printing Maze with Actions...");	
+		System.out.println("-------------------------");
+		
+		for (int row = 0; row < Constants.WIDTH; row++) {
+			System.out.print("|");
+			for(int col = 0 ; col < Constants.WIDTH ; col++) {
+				
+				String utility = utilityArr[col][row].getStrAction();
+				int n = (9 - utility.length())/2;
+				String str = String.format("%1$"+n+"s", "");
+				String str1 = String.format("%1$"+(n-1)+"s", "");
+				System.out.print("\t"+str+utility+str1+"\t|");
+				
+//				if (((m.maze[i][j]).getS())!=SquareType.wall)
+//					System.out.print("\t"+this.policy[i][j].getAction().get_display()+"\t|");	
+//				else
+//					System.out.print("\t"+(m.maze[i][j].getS()).get_display()+"\t|");		
+				
+			}
+			System.out.println("");
+			System.out.println("-------------------------");
+
+//			sb.append("|");
+//			for (int col = 0; col < Const.NUM_COLS; col++) {
+//				String util = utilArr[col][row].getActionStr();
+//				int n = (9 - util.length())/2;
+//				String str = String.format("%1$"+n+"s", "");
+//				String str1 = String.format("%1$"+(n-1)+"s", "");
+//				sb.append(str + util + str1 + "|");
+//			}
+//
+//			sb.append("\n|");
+//			for(int col = 0 ; col < Const.NUM_COLS ; col++) {
+//				sb.append("--------|".replace('-', ' '));
+//			}
+//			sb.append("\n");
+//
+//			sb.append("|");
+//			for(int col = 0 ; col < Const.NUM_COLS ; col++) {
+//				sb.append("--------|");
+//			}
+//			sb.append("\n");
+		}
+	}
+		
 }

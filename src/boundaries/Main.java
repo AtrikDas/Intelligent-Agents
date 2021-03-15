@@ -6,7 +6,9 @@ import controllers.IterationController;
 import entities.Constants;
 import entities.CreateEnvironment;
 import entities.StateModel;
+import entities.UtilityModel;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -27,11 +29,15 @@ public class Main {
 	    System.out.println("Enter 1 for Value Iteration or 2 for Policy Iteration");
 	    String choice = scanObj.nextLine();
 	    
-	    if (choice == "1") {
+	    if (choice.equals("1")) {
+	    	System.out.println("Commencing Value Iteration...");
 	    	IterationController.valueIteration(maze);
-	    } else if (choice == "2") {
+	    } else if (choice.equals("2")) {
+	    	System.out.println("Commencing Policy Iteration...");
 	    	IterationController.policyIteration(maze);
 	    }
+	    
+	    
 	}
 
 }

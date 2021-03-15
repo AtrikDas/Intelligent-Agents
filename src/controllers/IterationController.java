@@ -131,6 +131,14 @@ public class IterationController {
 			k++;
 
 		} while (!optimal);
+		
+		// Final item in the list is the optimal policy derived by policy iteration
+		int latestUtilities = utilityList.size() - 1;
+		final UtilityModel[][] optimalPolicy = utilityList.get(latestUtilities);
+			    
+		// Displays the Maze Environment with Optimal Actions
+		DisplayController.printPolicy(optimalPolicy);
+			 	
 	}
 
 }
