@@ -26,6 +26,12 @@ public class Constants {
 		// Epsilon value
 		public static final double EPSILON = C * MAX_REWARD;
 		
+		// Constant determining how many times bellman equation is run to produce utility estimate
+		public static final int K = 10;
+		
+		// Upper bound for Utility
+		public static final Object MAX_UTILITY_LIMIT = MAX_REWARD / (1 - DISCOUNT);
+		
 		// Special squares coordinates
 		public static final String GREEN_COORDS = "0,0 2,0 5,0 3,1 4,2 5,3";
 		public static final String BROWN_COORDS = "1,1 5,1 2,2 3,3 4,4";

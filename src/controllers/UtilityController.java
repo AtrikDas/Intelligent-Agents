@@ -82,7 +82,7 @@ public class UtilityController {
 					}
 				}
 				i++;
-			} while(i < 10);
+			} while(i < Constants.K);
 
 			return newUtilityArr;
 		}

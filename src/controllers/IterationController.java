@@ -11,7 +11,7 @@ import entities.Constants;
 public class IterationController {
 	
 	private static List<UtilityModel[][]> utilityList;
-	private static double convergeThreshold;
+	public static double convergeThreshold;
 	private static int k = 0;
 
 	public static void valueIteration(StateModel[][] maze) {

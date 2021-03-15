@@ -31,9 +31,23 @@ public class Main {
 	    
 	    if (choice.equals("1")) {
 	    	System.out.println("Commencing Value Iteration...");
+	    	
+	    	// Print relevant information 
+	    	System.out.println("Discount Factor\t\t" + ":\t" + Constants.DISCOUNT + "\n");
+	    	System.out.println("Utility Upper Bound\t" + ":\t" + String.format("%.5g", Constants.MAX_UTILITY_LIMIT) + "\n");
+	    	System.out.println("Max Reward(Rmax)\t" + ":\t" + Constants.MAX_REWARD + "\n");
+	    	System.out.println("Constant 'c'\t\t" + ":\t" + Constants.C + "\n");
+	    	System.out.println("Epsilon Value(c * Rmax)\t" + ":\t" + Constants.EPSILON + "\n");
+	    	System.out.println("Convergence Threshold\t:\t" + String.format("%.5f", IterationController.convergeThreshold) + "\n\n");
+	    	
 	    	IterationController.valueIteration(maze);
 	    } else if (choice.equals("2")) {
 	    	System.out.println("Commencing Policy Iteration...");
+	    	
+	    	// Print relevant information 
+	    	System.out.println("Discount Factor\t\t" + ":\t" + Constants.DISCOUNT + "\n");
+	    	System.out.println("k\t\t:\t" + Constants.K + "\n\n");
+	    	
 	    	IterationController.policyIteration(maze);
 	    }
 	    
