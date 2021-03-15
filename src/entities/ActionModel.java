@@ -2,6 +2,7 @@ package entities;
 
 import java.util.Random;
 
+// List of all possible moves the agent can take at each square of the maze
 public enum ActionModel {
 	NORTH("^"),
 	SOUTH("v"),
