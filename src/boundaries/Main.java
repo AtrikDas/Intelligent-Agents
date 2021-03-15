@@ -1,9 +1,13 @@
 package boundaries;
 
 import controllers.DisplayController;
+import controllers.IterationController;
+
 import entities.Constants;
 import entities.CreateEnvironment;
 import entities.StateModel;
+
+import java.util.Scanner;
 
 public class Main {
 	
@@ -17,6 +21,17 @@ public class Main {
 		
 		// Displays the Maze Environment
 		DisplayController.printMaze(maze);
+		
+		// Allow user to choose which iteration they want to apply
+		Scanner scanObj = new Scanner(System.in);
+	    System.out.println("Enter 1 for Value Iteration or 2 for Policy Iteration");
+	    String choice = scanObj.nextLine();
+	    
+	    if (choice == "1") {
+	    	IterationController.valueIteration(maze);
+	    } else if (choice == "2") {
+	    	IterationController.policyIteration(maze);
+	    }
 	}
 
 }
