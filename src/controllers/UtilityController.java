@@ -87,28 +87,101 @@ public class UtilityController {
 			return newUtilityArr;
 		}
 
+		private static TransitionModel transitionModel;
+		
+		public static double getEastUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
+			double EastUtility = 0.000;
 
-		private static double getEastUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
+			// Intends to move east
+			EastUtility += transitionModel.getIntendedProb() * moveEast(col, row, curUtilityArr, maze);
+
+			// Intends to move east, but moves north instead
+			EastUtility += transitionModel.getUnintendedProb() * moveNorth(col, row, curUtilityArr, maze);
+
+			// Intends to move east, but moves south instead
+			EastUtility += transitionModel.getUnintendedProb() * moveSouth(col, row, curUtilityArr, maze);
+
+			// Final utility
+			EastUtility = maze[col][row].getReward() + Constants.DISCOUNT * EastUtility;
+
+			return EastUtility;
+		}
+
+		public static double getWestUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
+			double WestUtility = 0.000;
+
+			// Intends to move west
+			WestUtility += transitionModel.getIntendedProb() * moveWest(col, row, curUtilityArr, maze);
+
+			// Intends to move west, but moves north instead
+			WestUtility += transitionModel.getUnintendedProb() * moveNorth(col, row, curUtilityArr, maze);
+
+			// Intends to move west, but moves south instead
+			WestUtility += transitionModel.getUnintendedProb() * moveSouth(col, row, curUtilityArr, maze);
+
+			// Final utility
+			WestUtility = maze[col][row].getReward() + Constants.DISCOUNT * WestUtility;
+
+			return WestUtility;
+		}
+
+		public static double getSouthUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
+			double SouthUtility = 0.000;
+
+			// Intends to move south
+			SouthUtility += transitionModel.getIntendedProb() * moveSouth(col, row, curUtilityArr, maze);
+
+			// Intends to move south, but moves west instead
+			SouthUtility += transitionModel.getUnintendedProb() * moveWest(col, row, curUtilityArr, maze);
+
+			// Intends to move south, but moves east instead
+			SouthUtility += transitionModel.getUnintendedProb() * moveEast(col, row, curUtilityArr, maze);
+
+			// Final utility
+			SouthUtility = maze[col][row].getReward() + Constants.DISCOUNT * SouthUtility;
+
+			return SouthUtility;
+		}
+
+		public static double getNorthUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
+			double NorthUtility = 0.000;
+
+			// Intends to move north
+			NorthUtility += transitionModel.getIntendedProb() * moveNorth(col, row, curUtilityArr, maze);
+
+			// Intends to move north, but moves west instead
+			NorthUtility += transitionModel.getUnintendedProb() * moveWest(col, row, curUtilityArr, maze);
+
+			// Intends to move north, but moves east instead
+			NorthUtility += transitionModel.getUnintendedProb() * moveEast(col, row, curUtilityArr, maze);
+
+			// Final utility
+			NorthUtility = maze[col][row].getReward() + Constants.DISCOUNT * NorthUtility;
+
+			return NorthUtility;
+		}
+		
+		private static double moveSouth(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
 			// TODO Auto-generated method stub
 			return 0;
 		}
 
-		private static double getWestUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
+		private static double moveNorth(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
 			// TODO Auto-generated method stub
 			return 0;
 		}
 
-		private static double getSouthUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
-		private static double getNorthUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
+		private static double moveEast(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
 			// TODO Auto-generated method stub
 			return 0;
 		}
 		
-		private static void updateUtilites(UtilityModel[][] newUtilityArr, UtilityModel[][] curUtilityArr) {
+		private static double moveWest(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+		public static void updateUtilites(UtilityModel[][] newUtilityArr, UtilityModel[][] curUtilityArr) {
 			// TODO Auto-generated method stub
 			
 		}
