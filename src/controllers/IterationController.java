@@ -12,7 +12,7 @@ public class IterationController {
 	
 	private static List<UtilityModel[][]> utilityList;
 	public static double convergeThreshold;
-	private static int k = 0;
+	public static int k = 0;
 
 	public static void valueIteration(StateModel[][] maze) {
 		
@@ -68,6 +68,19 @@ public class IterationController {
 
 		//the iteration will cease when the delta is less than the convergence threshold
 		} while ((delta) >= convergeThreshold);
+		
+		// Final item in the list is the optimal policy derived by value iteration
+		int lastIteration = utilityList.size() - 1;
+		final UtilityModel[][] optimalPolicy = utilityList.get(lastIteration);
+					    
+		// Displays the Maze Environment with Optimal Actions
+		DisplayController.printPolicy(optimalPolicy);
+		
+		// Display the utilities of all the states as a list
+		DisplayController.printUtilities(maze, optimalPolicy);
+				
+		// Display the utilities of all states in the maze
+		DisplayController.printUtilitiesMaze(optimalPolicy);
 		
 	}
 
@@ -138,6 +151,12 @@ public class IterationController {
 			    
 		// Displays the Maze Environment with Optimal Actions
 		DisplayController.printPolicy(optimalPolicy);
+		
+		// Display the utilities of all the states as a list
+		DisplayController.printUtilities(maze, optimalPolicy);
+		
+		// Display the utilities of all states in the maze
+		DisplayController.printUtilitiesMaze(optimalPolicy);
 			 	
 	}
 

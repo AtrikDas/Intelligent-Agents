@@ -1,5 +1,7 @@
 package controllers;
 
+import java.text.DecimalFormat;
+
 import entities.Constants;
 import entities.StateModel;
 import entities.UtilityModel;
@@ -40,7 +42,7 @@ public class DisplayController {
 		}
 	}
 	
-	// Display the policy, i.e. the action to be taken at each state
+	// Print the policy, i.e. the action to be taken at each state
 	public static void printPolicy(final UtilityModel[][] utilityArr) {
 		
 		System.out.println("Printing Maze with Actions...");	
@@ -87,5 +89,38 @@ public class DisplayController {
 //			sb.append("\n");
 		}
 	}
-		
+	
+	// Display the utilities of all the states
+		public static void printUtilities(final StateModel[][] maze, final UtilityModel[][] utilityArr) {
+			System.out.println("Utility Values of all the States");
+			for (int col = 0; col < Constants.WIDTH; col++) {
+				for (int row = 0; row < Constants.HEIGHT; row++) {
+
+					if (!maze[col][row].getIsWall()) {
+						String utility = String.format("%.8g", utilityArr[col][row].getUtility());
+						System.out.println("(" + col + ", " + row + "): " + utility + "\n");
+					}
+				}
+			}
+		}
+
+		// Display the utilities of all the states in the maze
+		public static void printUtilitiesMaze(final UtilityModel[][] utilityArr) {
+
+			System.out.println("Utilities of all the States in the Maze");
+			System.out.println("-------------------------");
+			
+			String pattern = "00.000";
+			DecimalFormat decimalFormat = new DecimalFormat(pattern);
+			
+			for (int row = 0; row < Constants.WIDTH; row++) {
+				System.out.print("|");
+				for(int col = 0 ; col < Constants.WIDTH ; col++) {			
+					System.out.print(String.format(" %s |",
+					decimalFormat.format(utilityArr[col][row].getUtility()).substring(0, 6)));
+				}
+				System.out.println("");
+				System.out.println("-------------------------");
+			}
+		}		
 }
