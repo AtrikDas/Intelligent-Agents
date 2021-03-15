@@ -1,6 +1,6 @@
 package entities;
 
-public class UtilityModel {
+public class UtilityModel implements Comparable<UtilityModel>{
 	
 	private double utility = 0.000;
 	private ActionModel action = null;
@@ -44,6 +44,7 @@ public class UtilityModel {
 		this.utility = utility;
 	}
 	
+	@Override
 	public int compareTo(UtilityModel diffPair) {
 
 		// Order utility values in descending order
