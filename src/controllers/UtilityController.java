@@ -3,6 +3,8 @@ package controllers;
 import entities.UtilityModel;
 import entities.StateModel;
 import entities.ActionModel;
+import entities.TransitionModel;
+import entities.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,6 +49,44 @@ public class UtilityController {
 
 			return fixedActionUtility;
 		}
+		
+		// Bellman equation
+		public static UtilityModel[][] bellmanEstimates(final UtilityModel[][] utilityArr, final StateModel[][] maze) {
+
+			UtilityModel[][] curUtilityArr = new UtilityModel[Constants.WIDTH][Constants.HEIGHT];
+			for (int col = 0; col < Constants.WIDTH; col++) {
+				for (int row = 0; row < Constants.HEIGHT; row++) {
+					curUtilityArr[col][row] = new UtilityModel();
+				}
+			}
+
+			UtilityModel[][] newUtilityArr = new UtilityModel[Constants.WIDTH][Constants.HEIGHT];
+			for (int col = 0; col < Constants.WIDTH; col++) {
+				for (int row = 0; row < Constants.HEIGHT; row++) {
+					newUtilityArr[col][row] = new UtilityModel(utilityArr[col][row].getAction(), utilityArr[col][row].getUtility());
+				}
+			}
+
+			int i = 0;
+			do {
+				updateUtilites(newUtilityArr, curUtilityArr);
+
+				// For each state
+				for (int row = 0; row < Constants.WIDTH; row++) {
+					for (int col = 0; col < Constants.HEIGHT; col++) {
+						if (!maze[col][row].getIsWall()) {
+							// Updates the utility based on the action stated in the policy
+							ActionModel action = curUtilityArr[col][row].getAction();
+							newUtilityArr[col][row] = getFixedUtility(action, col, row, curUtilityArr, maze);
+						}
+					}
+				}
+				i++;
+			} while(i < 10);
+
+			return newUtilityArr;
+		}
+
 
 		private static double getEastUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
 			// TODO Auto-generated method stub
@@ -66,5 +106,10 @@ public class UtilityController {
 		private static double getNorthUtility(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
 			// TODO Auto-generated method stub
 			return 0;
+		}
+		
+		private static void updateUtilites(UtilityModel[][] newUtilityArr, UtilityModel[][] curUtilityArr) {
+			// TODO Auto-generated method stub
+			
 		}
 }
