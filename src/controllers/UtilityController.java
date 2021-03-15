@@ -161,28 +161,42 @@ public class UtilityController {
 			return NorthUtility;
 		}
 		
+		// Move South
 		private static double moveSouth(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
-			// TODO Auto-generated method stub
-			return 0;
+			if (row + 1 < Constants.WIDTH && !maze[col][row + 1].getIsWall()) {
+				return curUtilityArr[col][row + 1].getUtility();
+			}
+			return curUtilityArr[col][row].getUtility();
 		}
 
+		// Move North
 		private static double moveNorth(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
-			// TODO Auto-generated method stub
-			return 0;
+			if (row - 1 >= 0 && !maze[col][row - 1].getIsWall()) {
+				return curUtilityArr[col][row - 1].getUtility();
+			}
+			return curUtilityArr[col][row].getUtility();
 		}
 
+		// Move East
 		private static double moveEast(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
-			// TODO Auto-generated method stub
-			return 0;
+			if (col + 1 < Constants.HEIGHT && !maze[col + 1][row].getIsWall()) {
+				return curUtilityArr[col + 1][row].getUtility();
+			}
+			return curUtilityArr[col][row].getUtility();
 		}
 		
+		// Move West
 		private static double moveWest(int col, int row, UtilityModel[][] curUtilityArr, StateModel[][] maze) {
-			// TODO Auto-generated method stub
-			return 0;
+			if (col - 1 >= 0 && !maze[col - 1][row].getIsWall()) {
+				return curUtilityArr[col - 1][row].getUtility();
+			}
+			return curUtilityArr[col][row].getUtility();
 		}
 		
+		// Copy from newUtility array to curUtility array
 		public static void updateUtilites(UtilityModel[][] newUtilityArr, UtilityModel[][] curUtilityArr) {
-			// TODO Auto-generated method stub
-			
+			for (int i = 0; i < newUtilityArr.length; i++) {
+				System.arraycopy(newUtilityArr[i], 0, curUtilityArr[i], 0, newUtilityArr[i].length);
+			}			
 		}
 }
