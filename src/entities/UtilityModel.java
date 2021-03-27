@@ -26,7 +26,7 @@ public class UtilityModel implements Comparable<UtilityModel>{
 	public String getStrAction() {
 
 		// No action (stay in the same square) at wall, otherwise return one of the 4 possible actions
-		return action != null ? action.toString() : " Stay";
+		return action != null ? action.toString() : "-";
 	}
 
 	// Setter for action

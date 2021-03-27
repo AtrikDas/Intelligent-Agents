@@ -21,13 +21,13 @@ public class Constants {
 		public static final double DISCOUNT =  0.990;
 		
 		// Constant c
-		public static final double C = 30;	//constant parameter to adjust the maximum error allowed
+		public static final double C = 0.1;	//constant parameter to adjust the maximum error allowed
 		
 		// Epsilon value
 		public static final double EPSILON = C * MAX_REWARD;
 		
 		// Constant determining how many times bellman equation is run to produce utility estimate
-		public static final int K = 10;
+		public static final int K = 100;
 		
 		// Upper bound for Utility
 		public static final Object MAX_UTILITY_LIMIT = MAX_REWARD / (1 - DISCOUNT);
