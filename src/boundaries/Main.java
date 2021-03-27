@@ -15,6 +15,7 @@ public class Main {
 	
 	private static StateModel[][] maze;	
 	public static CreateEnvironment createEnvironment = null;
+	private static List<UtilityModel[][]> utilityList;
 
 	public static void main(String[] args) {
 		// Initialize the maze environment
@@ -39,7 +40,7 @@ public class Main {
 	    	System.out.println("Constant 'c'\t\t" + ":\t" + Constants.C + "\n");
 	    	System.out.println("Epsilon Value(c * Rmax)\t" + ":\t" + Constants.EPSILON + "\n");	    	
 	    	
-	    	IterationController.valueIteration(maze);
+	    	IterationController.valueIteration(maze, utilityList);
 	    	
 	    	System.out.println("Convergence Threshold\t:\t" + String.format("%.5f", IterationController.convergeThreshold) + "\n\n");
 	    	
@@ -50,7 +51,7 @@ public class Main {
 	    	System.out.println("Discount Factor\t\t" + ":\t" + Constants.DISCOUNT + "\n");
 	    	System.out.println("k\t\t:\t" + Constants.K + "\n\n");
 	    	
-	    	IterationController.policyIteration(maze);
+	    	IterationController.policyIteration(maze, utilityList);
 	    }
 	    
 	    System.out.println("Total Number of Iterations: " + IterationController.k + "\n");

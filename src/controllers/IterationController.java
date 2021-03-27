@@ -10,11 +10,10 @@ import entities.Constants;
 
 public class IterationController {
 	
-	private static List<UtilityModel[][]> utilityList;
 	public static double convergeThreshold;
 	public static int k = 0;
 
-	public static void valueIteration(StateModel[][] maze) {
+	public static void valueIteration(StateModel[][] maze, List<UtilityModel[][]> utilityList) {
 		
 		UtilityModel[][] curUtilityArr = new UtilityModel[Constants.WIDTH][Constants.HEIGHT];
 		UtilityModel[][] newUtilityArr = new UtilityModel[Constants.WIDTH][Constants.HEIGHT];
@@ -84,7 +83,7 @@ public class IterationController {
 		
 	}
 
-	public static void policyIteration(StateModel[][] maze) {
+	public static void policyIteration(StateModel[][] maze, List<UtilityModel[][]> utilityList) {
 		
 		UtilityModel[][] curUtilityArr = new UtilityModel[Constants.WIDTH][Constants.HEIGHT];
 		UtilityModel[][] newUtilityArr = new UtilityModel[Constants.WIDTH][Constants.HEIGHT];

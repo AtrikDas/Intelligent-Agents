@@ -93,13 +93,13 @@ public class UtilityController {
 			double EastUtility = 0.000;
 
 			// Intends to move east
-			EastUtility += transitionModel.getIntendedProb() * moveEast(col, row, curUtilityArr, maze);
+			EastUtility += Constants.INTENDED_PROB * moveEast(col, row, curUtilityArr, maze);
 
 			// Intends to move east, but moves north instead
-			EastUtility += transitionModel.getUnintendedProb() * moveNorth(col, row, curUtilityArr, maze);
+			EastUtility += Constants.UNINTENDED_PROB * moveNorth(col, row, curUtilityArr, maze);
 
 			// Intends to move east, but moves south instead
-			EastUtility += transitionModel.getUnintendedProb() * moveSouth(col, row, curUtilityArr, maze);
+			EastUtility += Constants.UNINTENDED_PROB * moveSouth(col, row, curUtilityArr, maze);
 
 			// Final utility
 			EastUtility = maze[col][row].getReward() + Constants.DISCOUNT * EastUtility;
@@ -111,13 +111,13 @@ public class UtilityController {
 			double WestUtility = 0.000;
 
 			// Intends to move west
-			WestUtility += transitionModel.getIntendedProb() * moveWest(col, row, curUtilityArr, maze);
+			WestUtility += Constants.INTENDED_PROB * moveWest(col, row, curUtilityArr, maze);
 
 			// Intends to move west, but moves north instead
-			WestUtility += transitionModel.getUnintendedProb() * moveNorth(col, row, curUtilityArr, maze);
+			WestUtility += Constants.UNINTENDED_PROB * moveNorth(col, row, curUtilityArr, maze);
 
 			// Intends to move west, but moves south instead
-			WestUtility += transitionModel.getUnintendedProb() * moveSouth(col, row, curUtilityArr, maze);
+			WestUtility += Constants.UNINTENDED_PROB * moveSouth(col, row, curUtilityArr, maze);
 
 			// Final utility
 			WestUtility = maze[col][row].getReward() + Constants.DISCOUNT * WestUtility;
@@ -129,13 +129,13 @@ public class UtilityController {
 			double SouthUtility = 0.000;
 
 			// Intends to move south
-			SouthUtility += transitionModel.getIntendedProb() * moveSouth(col, row, curUtilityArr, maze);
+			SouthUtility += Constants.INTENDED_PROB * moveSouth(col, row, curUtilityArr, maze);
 
 			// Intends to move south, but moves west instead
-			SouthUtility += transitionModel.getUnintendedProb() * moveWest(col, row, curUtilityArr, maze);
+			SouthUtility += Constants.UNINTENDED_PROB * moveWest(col, row, curUtilityArr, maze);
 
 			// Intends to move south, but moves east instead
-			SouthUtility += transitionModel.getUnintendedProb() * moveEast(col, row, curUtilityArr, maze);
+			SouthUtility += Constants.UNINTENDED_PROB * moveEast(col, row, curUtilityArr, maze);
 
 			// Final utility
 			SouthUtility = maze[col][row].getReward() + Constants.DISCOUNT * SouthUtility;
@@ -147,13 +147,13 @@ public class UtilityController {
 			double NorthUtility = 0.000;
 
 			// Intends to move north
-			NorthUtility += transitionModel.getIntendedProb() * moveNorth(col, row, curUtilityArr, maze);
+			NorthUtility += Constants.INTENDED_PROB * moveNorth(col, row, curUtilityArr, maze);
 
 			// Intends to move north, but moves west instead
-			NorthUtility += transitionModel.getUnintendedProb() * moveWest(col, row, curUtilityArr, maze);
+			NorthUtility += Constants.UNINTENDED_PROB * moveWest(col, row, curUtilityArr, maze);
 
 			// Intends to move north, but moves east instead
-			NorthUtility += transitionModel.getUnintendedProb() * moveEast(col, row, curUtilityArr, maze);
+			NorthUtility += Constants.UNINTENDED_PROB * moveEast(col, row, curUtilityArr, maze);
 
 			// Final utility
 			NorthUtility = maze[col][row].getReward() + Constants.DISCOUNT * NorthUtility;
