@@ -3,6 +3,8 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+
 import entities.StateModel;
 import entities.UtilityModel;
 import entities.ActionModel;
@@ -61,6 +63,9 @@ public class IterationController {
 						// Update delta, if the updated delta value is larger than the current one
 						delta = Math.max(delta, updatedDelta);
 					}
+					
+					//Add utility data to grapher for this iteration
+					GraphController.AddIterationDataToDataset(curUtilityArr, k, maze);
 				}
 			}
 			k++;
@@ -80,6 +85,9 @@ public class IterationController {
 				
 		// Display the utilities of all states in the maze
 		DisplayController.printUtilitiesMaze(optimalPolicy);
+		
+		//Create graph for value iteration
+		CreateGraph(maze, "Value Iteration");
 		
 	}
 
@@ -138,6 +146,8 @@ public class IterationController {
 							optimal = false;
 						}
 					}
+					//Add utility data to grapher for this iteration
+					GraphController.AddIterationDataToDataset(curUtilityArr, k, maze);
 				}
 			}
 			k++;
@@ -156,7 +166,19 @@ public class IterationController {
 		
 		// Display the utilities of all states in the maze
 		DisplayController.printUtilitiesMaze(optimalPolicy);
+		
+		//Create graph for policy iteration
+		CreateGraph(maze, "Policy Iteration");											
 			 	
+	}
+	
+	//Function to create JPanel for graph to exist
+	public static void CreateGraph(StateModel[][] maze, String name) {										
+		JFrame jFrame = new JFrame("Utilities against Iterations: " + name);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.add(GraphController.CreatePanel(maze));
+        jFrame.setSize(1800,1000);
+        jFrame.setVisible(true);
 	}
 
 }

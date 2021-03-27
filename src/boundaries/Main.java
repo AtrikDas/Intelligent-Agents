@@ -1,6 +1,7 @@
 package boundaries;
 
 import controllers.DisplayController;
+import controllers.GraphController;
 import controllers.IterationController;
 
 import entities.Constants;
@@ -16,7 +17,8 @@ public class Main {
 	private static StateModel[][] maze;	
 	public static CreateEnvironment createEnvironment = null;
 	private static List<UtilityModel[][]> utilityList;
-
+	public static GraphController graphics;
+	
 	public static void main(String[] args) {
 		// Initialize the maze environment
 		createEnvironment = new CreateEnvironment(Constants.WIDTH, Constants.HEIGHT);
@@ -24,6 +26,8 @@ public class Main {
 		
 		// Displays the Maze Environment
 		DisplayController.printMaze(maze);
+		
+		graphics = new GraphController(maze);
 		
 		// Allow user to choose which iteration they want to apply
 		Scanner scanObj = new Scanner(System.in);

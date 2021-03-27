@@ -1,0 +1,119 @@
+[33mcommit e880892f611f3d8dafb98780a80ab50b0b6ae0e5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Sat Mar 27 22:58:24 2021 +0800
+
+    added external JARs
+
+[33mcommit 5d6ae28641a0d70e2b35983ba449e0f8f823e5f5[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Sat Mar 27 21:34:16 2021 +0800
+
+    bug fix
+
+[33mcommit dc9152bd889a16ee37690ee886a902e8181c9bd2[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 17:35:44 2021 +0800
+
+    print utilities
+
+[33mcommit 52e6e9932b461cbee6105c9e9a24cd762f07df85[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 16:54:28 2021 +0800
+
+    print experiment setup
+
+[33mcommit bebc175748b7ec3e644e9e02a83ddee2f1e573fb[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 16:39:04 2021 +0800
+
+    print optimal actions on maze
+
+[33mcommit daed2e3fcdfc76af31c37e18f566e842a928c782[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 15:04:50 2021 +0800
+
+    policy iteration
+
+[33mcommit c7dd6e0614b935d20596d9676a2901927137f213[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 14:56:12 2021 +0800
+
+    value iteration
+
+[33mcommit d3598a4edb1c23ce1cd29da96f654d7a772d099c[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 13:32:58 2021 +0800
+
+    UtilityController finished
+
+[33mcommit 1163dbb3ef0b3653f30718befcb4e08d2ac9986a[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 13:08:22 2021 +0800
+
+    UtilityController direction utilities
+
+[33mcommit 63fc894b940cc5a0ac6ad1a57313c0ea8276b168[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 12:39:11 2021 +0800
+
+    UtilityController bellman equation
+
+[33mcommit ba286f865bf9ed3401eacd7fcfea32d646c9be3d[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 11:36:32 2021 +0800
+
+    UtilityController half
+
+[33mcommit f9c5fe690e981b44725eb6fe5f8a0f12d36d1ef6[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Mon Mar 15 11:13:49 2021 +0800
+
+    UtilityModel
+
+[33mcommit 8e96abd1b1fbe7b5c763ddab024e4d566caf792c[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Sat Mar 13 23:09:05 2021 +0800
+
+    action model
+
+[33mcommit 64c0ff1972646cfe470147fecb865e43bd7454cd[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Sat Mar 13 22:55:04 2021 +0800
+
+    print maze
+
+[33mcommit e0f85b7e4719eb7de6ef919e3b18f5714b8a2c8d[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Sat Mar 13 17:54:14 2021 +0800
+
+    random maze
+
+[33mcommit 336d5c46a63c675bf7964009f0dde6095a458612[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Sat Mar 13 17:29:50 2021 +0800
+
+    build maze
+
+[33mcommit 84ac744d44f6de1d3d8c2b4c1b46a69f369fd936[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Sat Mar 13 16:11:02 2021 +0800
+
+    StateModel
+
+[33mcommit 7db9457db6390a0fbea102a261c626d5dc041dfe[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Sat Mar 13 15:48:15 2021 +0800
+
+    Constants and Transition Model
+
+[33mcommit 234ec7207ed594c35e6db2290f218bccd6f52327[m
+Author: AtrikDas <46774566+AtrikDas@users.noreply.github.com>
+Date:   Sat Mar 13 12:23:47 2021 +0800
+
+    Create README.md
+
+[33mcommit 2277ac74bd7b1eb1e606ebd59a310e92a6cfd433[m
+Author: Atrik Das <atrikdas@gmail.com>
+Date:   Sat Mar 13 12:18:42 2021 +0800
+
+    init project
