@@ -10,8 +10,8 @@ public class Constants {
 		public static final double MAX_REWARD = 1.000;
 		
 		// Dimensions of the maze
-		public static final int WIDTH = 6;
-		public static final int HEIGHT = 6;
+		public static final int WIDTH = 12; // Choose only 6 or 12
+		public static final int HEIGHT = 12; // Choose only 6 or 12
 
 		// Probabilities for Transition model 
 		public static final double INTENDED_PROB = 0.800;

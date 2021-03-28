@@ -12,7 +12,12 @@ public class DisplayController {
 	public static void printMaze(StateModel[][] maze) {										
 		
 		System.out.println("Printing Maze...");	
-		System.out.println("-------------------------");
+		if (Constants.WIDTH == 6 && Constants.HEIGHT == 6) {
+			System.out.println("-------------------------");
+		}else if(Constants.WIDTH == 12 && Constants.HEIGHT == 12){
+			System.out.println("-------------------------------------------------");
+		}
+		
 				
 		for (int row = 0; row < Constants.WIDTH; row++){
 			System.out.print("|");
@@ -38,15 +43,23 @@ public class DisplayController {
 				}
 			}
 			System.out.println("");
-			System.out.println("-------------------------");
+			if (Constants.WIDTH == 6 && Constants.HEIGHT == 6) {
+				System.out.println("-------------------------");
+			}else if(Constants.WIDTH == 12 && Constants.HEIGHT == 12){
+				System.out.println("-------------------------------------------------");
+			}
 		}
 	}
 	
 	// Print the policy, i.e. the action to be taken at each state
 	public static void printPolicy(final UtilityModel[][] utilityArr) {
 		
-		System.out.println("Printing Maze with Actions...");	
-		System.out.println("-------------------------------------------------------------------");
+		System.out.println("Printing Maze with Actions...");			
+		if (Constants.WIDTH == 6 && Constants.HEIGHT == 6) {
+			System.out.println("-------------------------------------------------------------------");
+		}else if(Constants.WIDTH == 12 && Constants.HEIGHT == 12){
+			System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
+		}
 		
 		for (int row = 0; row < Constants.WIDTH; row++) {
 			System.out.print("|");
@@ -60,7 +73,11 @@ public class DisplayController {
 				
 			}
 			System.out.println("");
-			System.out.println("-------------------------------------------------------------------");
+			if (Constants.WIDTH == 6 && Constants.HEIGHT == 6) {
+				System.out.println("-------------------------------------------------------------------");
+			}else if(Constants.WIDTH == 12 && Constants.HEIGHT == 12){
+				System.out.println("-------------------------------------------------------------------------------------------------------------------------------------");
+			}
 
 		}
 	}
@@ -82,8 +99,12 @@ public class DisplayController {
 		// Display the utilities of all the states in the maze
 		public static void printUtilitiesMaze(final UtilityModel[][] utilityArr) {
 
-			System.out.println("Utilities of all the States in the Maze");
-			System.out.println("-------------------------------------------------------");
+			System.out.println("Utilities of all the States in the Maze");			
+			if (Constants.WIDTH == 6 && Constants.HEIGHT == 6) {
+				System.out.println("-------------------------------------------------------");
+			}else if(Constants.WIDTH == 12 && Constants.HEIGHT == 12){
+				System.out.println("-------------------------------------------------------------------------------------------------------------");
+			}
 			
 			String pattern = "00.000";
 			DecimalFormat decimalFormat = new DecimalFormat(pattern);
@@ -95,7 +116,11 @@ public class DisplayController {
 					decimalFormat.format(utilityArr[col][row].getUtility()).substring(0, 6)));
 				}
 				System.out.println("");
-				System.out.println("-------------------------------------------------------");
+				if (Constants.WIDTH == 6 && Constants.HEIGHT == 6) {
+					System.out.println("-------------------------------------------------------");
+				}else if(Constants.WIDTH == 12 && Constants.HEIGHT == 12){
+					System.out.println("-------------------------------------------------------------------------------------------------------------");
+				}
 			}
 		}		
 }
