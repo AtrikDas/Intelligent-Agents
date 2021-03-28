@@ -78,7 +78,7 @@ private static final long serialVersionUID = 1L;
         
         ChartPanel chartPanel = new ChartPanel(chart);
         
-        chartPanel.setPreferredSize(new Dimension(1600, 900));
+        chartPanel.setPreferredSize(new Dimension(800, 450));
        
         panel.add(chartPanel);
         

@@ -177,7 +177,7 @@ public class IterationController {
 		JFrame jFrame = new JFrame("Utilities against Iterations: " + name);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.add(GraphController.CreatePanel(maze));
-        jFrame.setSize(1800,1000);
+        jFrame.setSize(800,450);
         jFrame.setVisible(true);
 	}
 
